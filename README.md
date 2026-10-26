@@ -32,7 +32,7 @@ The DPD has 3,895 psychiatric DINs (ATC N05 and N06). Counted as DINs, psychiatr
 
 The mix within psychiatric drug lines changed in four ways:
 
-1. Anxiolytics (mostly benzodiazepines such as lorazepam, alprazolam and diazepam) were 17% to 38% of new psychiatric lines in every period from 1965 to 1999 (before 1996, counting only products still sold in 1996). Since 2005 they have been under 7%.
+1. Anxiolytics, mostly benzodiazepines, were 17% to 38% of new psychiatric lines from 1965 to 1999 (before 1996, surviving products only). Since 2005 they have been under 7%.
 2. Antidepressants have been the largest class in every period since 1990, peaking at 56% of new lines in 2000-04, when generic paroxetine, sertraline and citalopram arrived.
 3. Antipsychotics jumped from 5% of new lines in 2000-04 to 36% in 2005-09, as generic risperidone, olanzapine and quetiapine arrived.
 4. ADHD drugs were 5% to 6% of new lines from 1990 to 2014, 12% in 2015-19 and 21% in 2020-24. Lisdexamfetamine (Vyvanse and its generics) accounted for 67 of the 115 new ADHD DINs in 2020-24. Of the 368 ADHD DINs ever listed, 219 are on the market today.
