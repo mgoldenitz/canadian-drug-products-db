@@ -4,6 +4,38 @@ SQL analysis of Health Canada's Drug Product Database (DPD): which companies and
 
 The DPD lists 50,960 human drug products, with dates from 1904 to October 2026. After removing homeopathic products and products with no ATC code, 44,177 remain; 24,462 of them are prescription drugs.
 
+## Key terms
+
+- Analysis set: The products this project analyses: human drugs with an ATC code, excluding homeopathic products (44,177 products).
+- Anatomical Therapeutic Chemical (ATC) classification: The World Health Organization's system for grouping drugs, with five levels. For sertraline, level 1 is N (nervous system), level 2 is N06 (psychoanaleptics), level 3 is N06A (antidepressants), level 4 is N06AB (selective serotonin reuptake inhibitors) and level 5 is N06AB06 (sertraline itself).
+- Anti-dementia drugs (N06D): Drugs for Alzheimer's disease and other dementias, such as donepezil, memantine and the antibodies lecanemab and donanemab.
+- Antidepressants (N06A): Drugs for depression, including selective serotonin reuptake inhibitors (SSRIs) such as fluoxetine, sertraline and citalopram.
+- Antipsychotics (N05A): Drugs for schizophrenia, bipolar disorder and other psychotic illness, such as haloperidol, risperidone, olanzapine and quetiapine. Lithium is also classed here.
+- Anxiolytics (N05B): Drugs for anxiety. Most in the DPD are benzodiazepines such as lorazepam, alprazolam and diazepam.
+- Biosimilar: A biologic drug (made from living cells) shown to be highly similar to a biologic already approved in Canada.
+- Brand-name drug: The first version of a drug, sold by the company that developed it or now owns it, such as Zoloft for sertraline.
+- Common table expression (CTE): A named subquery written with WITH at the top of a SQL query. Most queries in `sql/` use CTEs to build their result in steps.
+- Drug identification number (DIN): The eight-digit number Health Canada gives a drug product before it can be sold. Each combination of company, brand name, active ingredients, strength, dosage form and route gets its own DIN.
+- Drug line: This project's unit for combining strengths: one company's products with the same ATC code. Three strengths of one company's sertraline are three DINs and one drug line.
+- Drug Product Database (DPD): Health Canada's public database of drug products approved for sale in Canada, including human, veterinary, disinfectant and radiopharmaceutical products.
+- Extract: One of the four zip files Health Canada publishes, split by product status: marketed, approved (authorized but not yet sold), dormant (not being sold, but the DIN is kept) and inactive (cancelled).
+- Generic drug: A copy of a brand-name drug with the same active ingredient, sold once patents and data protection have expired. Health Canada requires the company to show it acts in the body the same way as the brand-name drug.
+- Herfindahl-Hirschman index (HHI): A measure of how concentrated a market is: the sum of each company's squared percentage share. It runs from near 0 (many small companies) to 10,000 (one company holds everything).
+- Homeopathic product: A product made from highly diluted substances under homeopathic principles. These are listed in the DPD but mostly lack ATC codes, so this project excludes them.
+- Hypnotics and sedatives (N05C): Sleep drugs and sedatives, such as zopiclone, zolpidem, midazolam and the orexin receptor blockers lemborexant and daridorexant.
+- Join: A SQL operation that combines rows from two tables on a shared column. Every DPD table joins on `drug_code`.
+- Open Government Licence – Canada: The licence Health Canada releases the DPD under. It allows copying, changing and sharing the data with attribution.
+- Prescription product: In this project, a product with any schedule other than non-prescription, ethical or homeopathic. Ethical products are non-prescription drugs marketed mainly to health professionals.
+- Psychiatric drugs: In this project, products with an ATC code in N05 (psycholeptics, which calm or sedate) or N06 (psychoanaleptics, which stimulate or lift mood).
+- Psychostimulants and ADHD drugs (N06B): Drugs mainly for attention deficit hyperactivity disorder, such as methylphenidate, lisdexamfetamine and atomoxetine, plus drugs for wakefulness such as modafinil.
+- Schedule: The legal category a drug is sold under, such as prescription, non-prescription, or controlled substances under the Controlled Drugs and Substances Act.
+- Status history: The DPD's record of each status change for a product (approved, marketed, dormant, cancelled) with its date. This project dates each product by its earliest status.
+- Substance: An ATC level 5 code. Different salt forms of one drug (for example, two forms of paroxetine) count as one substance.
+- Survivorship bias: Distortion that comes from looking only at items that lasted. The DPD has almost no products cancelled before 1996, so earlier periods show only drugs still sold in 1996.
+- Therapeutic area: In this project, an ATC level 1 group, such as nervous system or cardiovascular system.
+- View: A saved SQL query that behaves like a table. `v_product`, `v_human`, `v_analysis` and `v_line` are views.
+- Window function: A SQL function that calculates across a set of related rows without collapsing them, such as ROW_NUMBER() for ranking or SUM() OVER (PARTITION BY ...) for shares within a group.
+
 ## Results
 
 Health Canada gives each strength and form of a drug its own DIN, so a company selling sertraline in 25, 50 and 100 mg tablets holds three DINs. The results below count both DINs and drug lines. A drug line is one company's products with the same ATC code, so those three sertraline DINs are one line. The 24,462 prescription DINs make up 9,555 drug lines, an average of 2.6 DINs per line.
@@ -56,38 +88,6 @@ Psychiatric drugs are products with an ATC code in N05 (psycholeptics) or N06 (p
 A product's date is the earliest date in its status history. Dates before mid-1996 are year-only: they are MARKETED dates recorded as 31 December. From July 1996 on, records have exact dates, and most start with an APPROVED status. `02b_date_checks.sql` looks for a pile-up when the format changed and finds none on a single day: the most products sharing one exact date is 57 (15 August 1997). Yearly counts do peak in 1997, with 1,779 products against 1,335 in 1996 and 1,462 in 1998, spread across every month. That peak raises the 1995-99 counts, so the results compare shares within each period, not raw counts. The DPD records almost no cancellations before 1996: 7 products have a cancellation date before 1996, against 1,710 in 1996 and 3,143 in 1997. Products withdrawn before mid-1996 are therefore missing, and every product dated before 1996 was still on the market in 1996. Results for periods before 1996 describe those surviving products, grouped by the year they first went on sale, and undercount the drugs actually approved at the time. The charts shade these periods. The last period, 2025-26, covers about 22 months.
 
 Company names are grouped by removing punctuation and legal-form words (Inc, ULC, Ltd and similar), so "Pfizer Canada Inc." and "PFIZER CANADA ULC" count as one company. Mergers are not combined: Novopharm, which Teva bought in 2000 and later renamed Teva Canada, still appears separately with 273 prescription products, none marketed today. The company on a record is its current or last DIN owner, so an old brand can appear under the company that owns it now (olanzapine's first product is listed under Cheplapharm, not Eli Lilly).
-
-## Key terms
-
-- Analysis set: The products this project analyses: human drugs with an ATC code, excluding homeopathic products (44,177 products).
-- Anatomical Therapeutic Chemical (ATC) classification: The World Health Organization's system for grouping drugs, with five levels. For sertraline, level 1 is N (nervous system), level 2 is N06 (psychoanaleptics), level 3 is N06A (antidepressants), level 4 is N06AB (selective serotonin reuptake inhibitors) and level 5 is N06AB06 (sertraline itself).
-- Anti-dementia drugs (N06D): Drugs for Alzheimer's disease and other dementias, such as donepezil, memantine and the antibodies lecanemab and donanemab.
-- Antidepressants (N06A): Drugs for depression, including selective serotonin reuptake inhibitors (SSRIs) such as fluoxetine, sertraline and citalopram.
-- Antipsychotics (N05A): Drugs for schizophrenia, bipolar disorder and other psychotic illness, such as haloperidol, risperidone, olanzapine and quetiapine. Lithium is also classed here.
-- Anxiolytics (N05B): Drugs for anxiety. Most in the DPD are benzodiazepines such as lorazepam, alprazolam and diazepam.
-- Biosimilar: A biologic drug (made from living cells) shown to be highly similar to a biologic already approved in Canada.
-- Brand-name drug: The first version of a drug, sold by the company that developed it or now owns it, such as Zoloft for sertraline.
-- Common table expression (CTE): A named subquery written with WITH at the top of a SQL query. Most queries in `sql/` use CTEs to build their result in steps.
-- Drug identification number (DIN): The eight-digit number Health Canada gives a drug product before it can be sold. Each combination of company, brand name, active ingredients, strength, dosage form and route gets its own DIN.
-- Drug line: This project's unit for combining strengths: one company's products with the same ATC code. Three strengths of one company's sertraline are three DINs and one drug line.
-- Drug Product Database (DPD): Health Canada's public database of drug products approved for sale in Canada, including human, veterinary, disinfectant and radiopharmaceutical products.
-- Extract: One of the four zip files Health Canada publishes, split by product status: marketed, approved (authorized but not yet sold), dormant (not being sold, but the DIN is kept) and inactive (cancelled).
-- Generic drug: A copy of a brand-name drug with the same active ingredient, sold once patents and data protection have expired. Health Canada requires the company to show it acts in the body the same way as the brand-name drug.
-- Herfindahl-Hirschman index (HHI): A measure of how concentrated a market is: the sum of each company's squared percentage share. It runs from near 0 (many small companies) to 10,000 (one company holds everything).
-- Homeopathic product: A product made from highly diluted substances under homeopathic principles. These are listed in the DPD but mostly lack ATC codes, so this project excludes them.
-- Hypnotics and sedatives (N05C): Sleep drugs and sedatives, such as zopiclone, zolpidem, midazolam and the orexin receptor blockers lemborexant and daridorexant.
-- Join: A SQL operation that combines rows from two tables on a shared column. Every DPD table joins on `drug_code`.
-- Open Government Licence – Canada: The licence Health Canada releases the DPD under. It allows copying, changing and sharing the data with attribution.
-- Prescription product: In this project, a product with any schedule other than non-prescription, ethical or homeopathic. Ethical products are non-prescription drugs marketed mainly to health professionals.
-- Psychiatric drugs: In this project, products with an ATC code in N05 (psycholeptics, which calm or sedate) or N06 (psychoanaleptics, which stimulate or lift mood).
-- Psychostimulants and ADHD drugs (N06B): Drugs mainly for attention deficit hyperactivity disorder, such as methylphenidate, lisdexamfetamine and atomoxetine, plus drugs for wakefulness such as modafinil.
-- Schedule: The legal category a drug is sold under, such as prescription, non-prescription, or controlled substances under the Controlled Drugs and Substances Act.
-- Status history: The DPD's record of each status change for a product (approved, marketed, dormant, cancelled) with its date. This project dates each product by its earliest status.
-- Substance: An ATC level 5 code. Different salt forms of one drug (for example, two forms of paroxetine) count as one substance.
-- Survivorship bias: Distortion that comes from looking only at items that lasted. The DPD has almost no products cancelled before 1996, so earlier periods show only drugs still sold in 1996.
-- Therapeutic area: In this project, an ATC level 1 group, such as nervous system or cardiovascular system.
-- View: A saved SQL query that behaves like a table. `v_product`, `v_human`, `v_analysis` and `v_line` are views.
-- Window function: A SQL function that calculates across a set of related rows without collapsing them, such as ROW_NUMBER() for ranking or SUM() OVER (PARTITION BY ...) for shares within a group.
 
 ## Database
 
