@@ -1,0 +1,15 @@
+atc1,therapeutic_area,products,rx_products,non_rx_products,marketed_now,companies,pct_of_all,pct_of_rx
+D,Dermatologicals,9509,654,8855,1017,1230,21.5,2.7
+N,Nervous system,8357,6643,1714,2825,433,18.9,27.2
+A,Alimentary tract and metabolism,6762,2069,4693,977,797,15.3,8.5
+C,Cardiovascular system,4932,4592,340,1675,319,11.2,18.8
+J,Antiinfectives for systemic use,2696,2653,43,837,236,6.1,10.8
+B,Blood and blood forming organs,2299,980,1319,744,276,5.2,4.0
+L,Antineoplastic and immunomodulating agents,2207,2206,1,1206,202,5.0,9.0
+R,Respiratory system,2113,765,1348,491,319,4.8,3.1
+M,Musculo-skeletal system,1572,1064,508,396,275,3.6,4.3
+G,Genito-urinary system and sex hormones,1205,1125,80,477,158,2.7,4.6
+S,Sensory organs,917,653,264,245,156,2.1,2.7
+V,Various,912,426,486,308,247,2.1,1.7
+H,"Systemic hormonal preparations, excluding sex hormones and insulins",568,553,15,212,109,1.3,2.3
+P,"Antiparasitic products, insecticides and repellents",128,79,49,43,74,0.3,0.3

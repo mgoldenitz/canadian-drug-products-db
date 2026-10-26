@@ -1,0 +1,71 @@
+atc1,therapeutic_area,rank_in_area,company_group,products,pct_of_area
+A,Alimentary tract and metabolism,1,VITA HEALTH PRODUCTS,175,2.6
+A,Alimentary tract and metabolism,2,PHARMASCIENCE,159,2.4
+A,Alimentary tract and metabolism,3,JAMP PHARMA,116,1.7
+A,Alimentary tract and metabolism,4,TEVA CANADA,114,1.7
+A,Alimentary tract and metabolism,5,STANLEY PHARMACEUTICALS A DIVISION OF VITA HEALTH PRODUCTS,111,1.6
+B,Blood and blood forming organs,1,BAXTER,255,11.1
+B,Blood and blood forming organs,2,CHIEF MEDICAL SUPPLIES,100,4.3
+B,Blood and blood forming organs,3,GENPHARM,89,3.9
+B,Blood and blood forming organs,4,SANDOZ CANADA,60,2.6
+B,Blood and blood forming organs,5,VANTIVE,60,2.6
+C,Cardiovascular system,1,TEVA CANADA,313,6.3
+C,Cardiovascular system,2,APOTEX,263,5.3
+C,Cardiovascular system,3,PHARMASCIENCE,263,5.3
+C,Cardiovascular system,4,PRO DOC,211,4.3
+C,Cardiovascular system,5,JAMP PHARMA,191,3.9
+D,Dermatologicals,1,PROCTER AND GAMBLE,346,3.6
+D,Dermatologicals,2,THE AVON CANADA,335,3.5
+D,Dermatologicals,3,JOHNSON AND JOHNSON,322,3.4
+D,Dermatologicals,4,FRUIT OF THE EARTH,165,1.7
+D,Dermatologicals,5,CLINIQUE LABORATORIES DIST,150,1.6
+G,Genito-urinary system and sex hormones,1,PFIZER CANADA,66,5.5
+G,Genito-urinary system and sex hormones,2,APOTEX,63,5.2
+G,Genito-urinary system and sex hormones,3,TEVA CANADA,63,5.2
+G,Genito-urinary system and sex hormones,4,PHARMASCIENCE,49,4.1
+G,Genito-urinary system and sex hormones,5,JAMP PHARMA,45,3.7
+H,"Systemic hormonal preparations, excluding sex hormones and insulins",1,PFIZER CANADA,50,8.8
+H,"Systemic hormonal preparations, excluding sex hormones and insulins",2,PHARMASCIENCE,32,5.6
+H,"Systemic hormonal preparations, excluding sex hormones and insulins",3,APOTEX,28,4.9
+H,"Systemic hormonal preparations, excluding sex hormones and insulins",4,TEVA CANADA,28,4.9
+H,"Systemic hormonal preparations, excluding sex hormones and insulins",5,EMD SERONO A DIVISION OF EMD CANADA,25,4.4
+J,Antiinfectives for systemic use,1,TEVA CANADA,141,5.2
+J,Antiinfectives for systemic use,2,APOTEX,124,4.6
+J,Antiinfectives for systemic use,3,SANDOZ CANADA,96,3.6
+J,Antiinfectives for systemic use,4,PFIZER CANADA,90,3.3
+J,Antiinfectives for systemic use,5,JAMP PHARMA,88,3.3
+L,Antineoplastic and immunomodulating agents,1,PFIZER CANADA,129,5.8
+L,Antineoplastic and immunomodulating agents,2,SANDOZ CANADA,112,5.1
+L,Antineoplastic and immunomodulating agents,3,TEVA CANADA,109,4.9
+L,Antineoplastic and immunomodulating agents,4,APOTEX,97,4.4
+L,Antineoplastic and immunomodulating agents,5,ACCORD HEALTHCARE,79,3.6
+M,Musculo-skeletal system,1,APOTEX,94,6.0
+M,Musculo-skeletal system,2,TEVA CANADA,91,5.8
+M,Musculo-skeletal system,3,PHARMASCIENCE,71,4.5
+M,Musculo-skeletal system,4,PRO DOC,51,3.2
+M,Musculo-skeletal system,5,SANDOZ CANADA,45,2.9
+N,Nervous system,1,PHARMASCIENCE,472,5.6
+N,Nervous system,2,TEVA CANADA,436,5.2
+N,Nervous system,3,APOTEX,435,5.2
+N,Nervous system,4,JAMP PHARMA,320,3.8
+N,Nervous system,5,SANDOZ CANADA,286,3.4
+P,"Antiparasitic products, insecticides and repellents",1,APOTEX,8,6.3
+P,"Antiparasitic products, insecticides and repellents",2,JAMP PHARMA,6,4.7
+P,"Antiparasitic products, insecticides and repellents",3,ODAN LABORATORIESLTD,5,3.9
+P,"Antiparasitic products, insecticides and repellents",4,JAAPHARM CANADA,4,3.1
+P,"Antiparasitic products, insecticides and repellents",5,TEVA CANADA,4,3.1
+R,Respiratory system,1,TEVA CANADA,102,4.8
+R,Respiratory system,2,APOTEX,73,3.5
+R,Respiratory system,3,PHARMASCIENCE,69,3.3
+R,Respiratory system,4,MCNEIL CONSUMER HEALTHCARE DIVISION OF JOHNSON AND JOHNSON,59,2.8
+R,Respiratory system,5,GLAXOSMITHKLINE,55,2.6
+S,Sensory organs,1,SANDOZ CANADA,65,7.1
+S,Sensory organs,2,ALCON CANADA,59,6.4
+S,Sensory organs,3,BAUSCH AND LOMB,44,4.8
+S,Sensory organs,4,ALLERGAN,40,4.4
+S,Sensory organs,5,NOVARTIS PHARMACEUTICALS CANADA,40,4.4
+V,Various,1,JUBILANT HOLLISTERSTIER,45,4.9
+V,Various,2,TYCO HEALTHCARE,33,3.6
+V,Various,3,GREER LABORATORIES,30,3.3
+V,Various,4,HOLLISTER-STIER UNIT PHARM DIVISION OF MILES CANADA,27,3.0
+V,Various,5,OMEGA LABORATORIES,23,2.5

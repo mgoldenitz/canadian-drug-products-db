@@ -1,0 +1,85 @@
+period_start,atc3,psych_class,products,pct_of_psych_dins,lines,pct_of_psych_lines
+1935,N05C,Hypnotics and sedatives,3,100.0,3,100.0
+1945,N05C,Hypnotics and sedatives,2,100.0,1,100.0
+1950,N05A,Antipsychotics,3,50.0,2,50.0
+1950,N05C,Hypnotics and sedatives,3,50.0,2,50.0
+1955,N05A,Antipsychotics,21,63.6,7,50.0
+1955,N05B,Anxiolytics,7,21.2,4,28.6
+1955,N05C,Hypnotics and sedatives,2,6.1,1,7.1
+1955,N06A,Antidepressants,1,3.0,1,7.1
+1955,N06B,Psychostimulants and ADHD drugs,2,6.1,1,7.1
+1960,N06A,Antidepressants,8,40.0,4,40.0
+1960,N05A,Antipsychotics,7,35.0,3,30.0
+1960,N06C,Psycholeptic and psychoanaleptic combinations,4,20.0,2,20.0
+1960,N06B,Psychostimulants and ADHD drugs,1,5.0,1,10.0
+1965,N05A,Antipsychotics,12,41.4,7,35.0
+1965,N05B,Anxiolytics,6,20.7,5,25.0
+1965,N05C,Hypnotics and sedatives,4,13.8,4,20.0
+1965,N06A,Antidepressants,7,24.1,4,20.0
+1970,N05B,Anxiolytics,21,31.8,9,37.5
+1970,N05A,Antipsychotics,23,34.8,7,29.2
+1970,N06A,Antidepressants,16,24.2,5,20.8
+1970,N05C,Hypnotics and sedatives,4,6.1,2,8.3
+1970,N06C,Psycholeptic and psychoanaleptic combinations,2,3.0,1,4.2
+1975,N05A,Antipsychotics,45,44.6,15,42.9
+1975,N06A,Antidepressants,29,28.7,9,25.7
+1975,N05B,Anxiolytics,22,21.8,8,22.9
+1975,N06C,Psycholeptic and psychoanaleptic combinations,3,3.0,2,5.7
+1975,N05C,Hypnotics and sedatives,2,2.0,1,2.9
+1980,N05A,Antipsychotics,32,34.4,13,34.2
+1980,N05B,Anxiolytics,26,28.0,9,23.7
+1980,N05C,Hypnotics and sedatives,20,21.5,9,23.7
+1980,N06A,Antidepressants,10,10.8,5,13.2
+1980,N06B,Psychostimulants and ADHD drugs,2,2.2,1,2.6
+1980,N06C,Psycholeptic and psychoanaleptic combinations,3,3.2,1,2.6
+1985,N05B,Anxiolytics,33,27.5,12,32.4
+1985,N05A,Antipsychotics,44,36.7,11,29.7
+1985,N06A,Antidepressants,33,27.5,8,21.6
+1985,N05C,Hypnotics and sedatives,10,8.3,6,16.2
+1990,N06A,Antidepressants,57,41.9,19,33.9
+1990,N05B,Anxiolytics,33,24.3,16,28.6
+1990,N05A,Antipsychotics,26,19.1,9,16.1
+1990,N05C,Hypnotics and sedatives,13,9.6,9,16.1
+1990,N06B,Psychostimulants and ADHD drugs,7,5.1,3,5.4
+1995,N06A,Antidepressants,219,47.3,75,43.4
+1995,N05A,Antipsychotics,124,26.8,32,18.5
+1995,N05B,Anxiolytics,61,13.2,30,17.3
+1995,N05C,Hypnotics and sedatives,45,9.7,26,15.0
+1995,N06B,Psychostimulants and ADHD drugs,12,2.6,9,5.2
+1995,N06D,Anti-dementia drugs,2,0.4,1,0.6
+2000,N06A,Antidepressants,154,53.8,55,56.1
+2000,N05C,Hypnotics and sedatives,37,12.9,16,16.3
+2000,N05B,Anxiolytics,29,10.1,13,13.3
+2000,N06B,Psychostimulants and ADHD drugs,24,8.4,6,6.1
+2000,N05A,Antipsychotics,33,11.5,5,5.1
+2000,N06D,Anti-dementia drugs,9,3.1,3,3.1
+2005,N06A,Antidepressants,165,29.7,48,38.1
+2005,N05A,Antipsychotics,279,50.3,45,35.7
+2005,N06D,Anti-dementia drugs,57,10.3,14,11.1
+2005,N05C,Hypnotics and sedatives,27,4.9,10,7.9
+2005,N06B,Psychostimulants and ADHD drugs,24,4.3,8,6.3
+2005,N05B,Anxiolytics,3,0.5,1,0.8
+2010,N06A,Antidepressants,278,31.8,81,39.9
+2010,N06D,Anti-dementia drugs,117,13.4,45,22.2
+2010,N05A,Antipsychotics,320,36.7,43,21.2
+2010,N05C,Hypnotics and sedatives,47,5.4,16,7.9
+2010,N06B,Psychostimulants and ADHD drugs,71,8.1,11,5.4
+2010,N05B,Anxiolytics,40,4.6,7,3.4
+2015,N06A,Antidepressants,221,41.5,66,51.2
+2015,N05A,Antipsychotics,154,28.9,25,19.4
+2015,N06B,Psychostimulants and ADHD drugs,87,16.3,15,11.6
+2015,N05C,Hypnotics and sedatives,40,7.5,12,9.3
+2015,N06D,Anti-dementia drugs,29,5.4,10,7.8
+2015,N05B,Anxiolytics,2,0.4,1,0.8
+2020,N06A,Antidepressants,97,24.1,26,29.9
+2020,N05A,Antipsychotics,142,35.3,20,23.0
+2020,N06B,Psychostimulants and ADHD drugs,115,28.6,18,20.7
+2020,N05C,Hypnotics and sedatives,31,7.7,15,17.2
+2020,N05B,Anxiolytics,10,2.5,6,6.9
+2020,N06D,Anti-dementia drugs,7,1.7,2,2.3
+2025,N06A,Antidepressants,62,35.6,16,43.2
+2025,N05A,Antipsychotics,64,36.8,11,29.7
+2025,N06D,Anti-dementia drugs,10,5.7,5,13.5
+2025,N05C,Hypnotics and sedatives,11,6.3,3,8.1
+2025,N05B,Anxiolytics,4,2.3,1,2.7
+2025,N06B,Psychostimulants and ADHD drugs,23,13.2,1,2.7
