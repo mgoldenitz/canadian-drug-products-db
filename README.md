@@ -1,4 +1,4 @@
-# Canadian drug products database
+# Canadian Drug Products Database
 
 SQL analysis of Health Canada's Drug Product Database (DPD): which companies and therapeutic areas account for the most drug products approved in Canada, and how the mix of psychiatric drugs has changed since the 1970s.
 
