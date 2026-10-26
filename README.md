@@ -63,7 +63,6 @@ Company names are grouped by removing punctuation and legal-form words (Inc, ULC
 
 SQLite, built by `scripts/01_build_database.py` with the Python standard library. One table per DPD file type, with an `extract` column saying which zip each row came from. The main tables are `drug` (drug_code, din, brand_name, class), `company` (company_name, country), `ingredient` (ingredient, strength), `status` (status, history_date), `therapeutic_class` (tc_atc_number, tc_atc) and `schedule`. The build also loads `dosage_form`, `route`, `pharm_standard`, `package`, `vet_species`, `biosimilar` and `inactive_product`. Every table joins on `drug_code`.
 
-
 Lookup tables added by the build: `atc_level1` (WHO ATC main groups), `psych_class` (N05/N06 level 3 classes) and `company_clean` (grouped company names). `sql/00_views.sql` joins the tables into `v_product` (one row per product), `v_human` (human drugs), `v_analysis` (the analysis set) and `v_line` (one row per drug line).
 
 ## How to run
