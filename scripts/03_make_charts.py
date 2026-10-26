@@ -52,20 +52,20 @@ for i, r in enumerate(rows):
             va="center", color=MUTED, fontsize=9)
 ax.set_xlim(0, max(int(r["rx_drug_lines"]) for r in rows) * 1.3)
 ax.set_xlabel("Prescription drug lines (one per company and drug), all years")
-ax.set_title("Companies with the most prescription drugs in the DPD", loc="left", fontsize=11)
+fig.suptitle("Companies with the most prescription drugs in the DPD", x=0.01, ha="left", fontsize=11)
 ax.grid(axis="x", color=GRID, linewidth=0.8)
 ax.set_axisbelow(True)
 save(fig, "top_companies_rx.png")
 
 # 2. Prescription products by ATC main group
 rows = sorted(read("04_therapeutic_areas"), key=lambda r: int(r["rx_products"]))
-fig, ax = plt.subplots(figsize=(7, 4.5))
+fig, ax = plt.subplots(figsize=(8, 4.8))
 labels = [r["therapeutic_area"].split(",")[0] for r in rows]
 ax.barh(labels, [int(r["rx_products"]) for r in rows], color=SERIES[0], height=0.6)
 for i, r in enumerate(rows):
     ax.text(int(r["rx_products"]) + 50, i, f'{float(r["pct_of_rx"]):.1f}%', va="center", color=MUTED, fontsize=9)
 ax.set_xlabel("Prescription products (DINs), all years")
-ax.set_title("Prescription products by therapeutic area (ATC main group)", loc="left", fontsize=11)
+fig.suptitle("Prescription products by therapeutic area (ATC main group)", x=0.01, ha="left", fontsize=11)
 ax.grid(axis="x", color=GRID, linewidth=0.8)
 ax.set_axisbelow(True)
 save(fig, "therapeutic_areas_rx.png")
@@ -88,7 +88,7 @@ ax.set_xlim(x[0] - 2, x[-1] + 10)
 ax.axvspan(x[0] - 2, 1993.5, color=GRID, alpha=0.5, linewidth=0)
 ax.text(x[0], 26, "Before 1996: only products still sold in 1996", color=MUTED, fontsize=8.5, va="top")
 
-ax.set_title("Psychiatric drugs (ATC N05, N06) as a share of new prescription drugs,\ncounted as DINs (each strength) and as drug lines (strengths combined)", loc="left", fontsize=10.5)
+fig.suptitle("Psychiatric drugs (ATC N05, N06) as a share of new prescription drugs,\ncounted as DINs (each strength) and as drug lines (strengths combined)", x=0.01, ha="left", fontsize=10.5)
 ax.grid(axis="y", color=GRID, linewidth=0.8)
 ax.set_axisbelow(True)
 save(fig, "psych_share_rx.png")
@@ -116,7 +116,7 @@ ax.set_xticklabels([f"{p}-{str(p + 4)[2:]}" if p < 2025 else "2025-26" for p in 
 ax.set_ylabel("% of new psychiatric drug lines")
 ax.set_ylim(0, 108)
 ax.set_yticks(range(0, 101, 20))
-ax.set_title("Mix of new psychiatric drug lines by class", loc="left", fontsize=11)
+fig.suptitle("Mix of new psychiatric drug lines by class", x=0.01, ha="left", fontsize=11)
 ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1), frameon=False, fontsize=9)
 save(fig, "psych_class_mix.png")
 
