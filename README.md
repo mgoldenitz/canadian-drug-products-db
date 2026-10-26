@@ -81,6 +81,7 @@ python scripts/03_make_charts.py      # writes images/*.png (needs matplotlib)
 - `01_table_counts.sql`: Rows per table and extract.
 - `02_data_checks.sql`: Products missing a company, ATC code or date, and the size of the analysis set.
 - `02b_date_checks.sql`: Products per first year, year-only dates and the largest same-day count.
+- `02c_null_profile.sql`: Share of NULL values in every column of the DPD tables.
 - `03_top_companies.sql`: Companies with the most products.
 - `03b_top_companies_rx.sql`: Companies with the most prescription drug lines and DINs.
 - `04_therapeutic_areas.sql`: Products by ATC main group, prescription and non-prescription.
