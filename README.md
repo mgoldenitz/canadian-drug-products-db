@@ -63,6 +63,8 @@ Company names are grouped by removing punctuation and legal-form words (Inc, ULC
 
 SQLite, built by `scripts/01_build_database.py` with the Python standard library. One table per DPD file type, with an `extract` column saying which zip each row came from. The main tables are `drug` (drug_code, din, brand_name, class), `company` (company_name, country), `ingredient` (ingredient, strength), `status` (status, history_date), `therapeutic_class` (tc_atc_number, tc_atc) and `schedule`. The build also loads `dosage_form`, `route`, `pharm_standard`, `package`, `vet_species`, `biosimilar` and `inactive_product`. Every table joins on `drug_code`.
 
+Many columns are mostly empty, and the build keeps them as NULL without filling them in. The DPD leaves a field blank when it does not apply: French names (`_f` columns) only where they differ from the English, lot numbers and expiry dates only for products released by lot, and address lines a company does not have. Nine columns are empty in every row of this release: the six size and type columns in `package` (only `product_information` is filled), `strength_type` and `strength_type_f` in `ingredient`, and `tc_atc_f` in `therapeutic_class`. None of these columns is used in the analysis. The columns the analysis does use are checked in `02_data_checks.sql`: no product lacks a company or a status date, and the 6,782 human products without an ATC code are excluded.
+
 Lookup tables added by the build: `atc_level1` (WHO ATC main groups), `psych_class` (N05/N06 level 3 classes) and `company_clean` (grouped company names). `sql/00_views.sql` joins the tables into `v_product` (one row per product), `v_human` (human drugs), `v_analysis` (the analysis set) and `v_line` (one row per drug line).
 
 ## How to run

@@ -70,7 +70,7 @@ LAYOUTS = {
     "vet": ("vet_species", ["drug_code", "vet_species", "vet_sub_species", "vet_species_f"]),
     "biosimilar": ("biosimilar", ["drug_code", "biosimilar_type", "biosimilar_type_f"]),
     # Only in the inactive zip, without the _ia suffix
-    "inactive": ("inactive_product", ["drug_code", "din", "brand_name", "inactive_date"]),
+    "inactive": ("inactive_product", ["drug_code", "din", "brand_name", "inactive_date", "brand_name_f"]),
 }
 
 DATE_COLUMNS = {"last_update_date", "history_date", "expiration_date", "inactive_date"}
