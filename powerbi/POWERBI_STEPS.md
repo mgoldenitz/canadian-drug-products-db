@@ -86,7 +86,7 @@ Companies:
 Therapeutic areas:
 
 - Clustered bar chart: `atc_level1[therapeutic_area]` on the Y-axis, `Rx Products` on the X-axis.
-- Stacked column chart: `Date[Period]` on the X-axis, `Rx Drug Lines` on the Y-axis, `atc_level1[therapeutic_area]` as the legend.
+- Matrix (heatmap): `atc_level1[therapeutic_area]` in Rows, `Date[Period]` in Columns, `Rx Drug Lines` in Values. Under Format, Cell elements, turn Background color on (one-colour gradient). Add a visual filter `Date[Year]` is greater than or equal to 1970.
 
 Psychiatric drugs:
 
