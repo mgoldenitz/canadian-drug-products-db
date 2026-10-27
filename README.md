@@ -43,6 +43,26 @@ New psychiatric substances have slowed. Canada saw 25 new psychiatric substances
 
 Ketamine and esketamine appear in 14 human products (`14_esketamine_ketamine.sql`). Spravato, Janssen's esketamine nasal spray, is the only esketamine product; its first DPD status date is May 2020, and it is marketed today. The other 13 are ketamine injections from 5 companies, starting with Ketalar in 1972: 7 are marketed, 3 approved but not yet sold and 3 cancelled. Ketamine's ATC code is N01AX03 (anaesthetics), so it is not counted among the psychiatric drugs above.
 
+## Power BI report
+
+The Power BI report (`powerbi/canadian-drug-products-db.pbix`, also exported as [a PDF](powerbi/canadian-drug-products-db.pdf)) has four pages built from the CSVs in `powerbi/`.
+
+![Power BI: companies](images/powerbi_companies.png)
+
+The Companies page ranks the top 10 companies by prescription drug lines, with a dropdown to limit it to one five-year period.
+
+![Power BI: therapeutic areas](images/powerbi_therapeutic_areas.png)
+
+The Therapeutic areas page shows new drug lines by area and five-year period as a heatmap, above total prescription products by area.
+
+![Power BI: psychiatric drugs](images/powerbi_psychiatric_drugs.png)
+
+The Psychiatric drugs page shows the psychiatric share of new prescription drug lines and the mix of classes from 1970 on.
+
+![Power BI: ketamine and esketamine](images/powerbi_ketamine.png)
+
+The last page lists the 14 ketamine and esketamine products.
+
 ## Data
 
 Health Canada, Drug Product Database data extracts, downloaded 26 October 2026 from https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/what-data-extract-drug-product-database.html. Four zip files, one per product status: marketed (`allfiles.zip`), approved but not yet marketed (`allfiles_ap.zip`), cancelled or inactive (`allfiles_ia.zip`) and dormant (`allfiles_dr.zip`). Each zip holds the same set of related files linked by `drug_code`: products, companies, active ingredients, status history, therapeutic class (ATC), dosage form, route, schedule, packaging, veterinary species and biosimilar flags.
