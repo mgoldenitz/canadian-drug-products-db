@@ -96,3 +96,55 @@ SELECT
     (CAST(substr(MIN(first_date), 1, 4) AS INTEGER) / 5) * 5 AS period_start
 FROM v_analysis
 GROUP BY company_group, atc_code;
+
+-- Drug lookup: one row per product, keyed on DIN, with its active ingredients,
+-- dosage forms, routes and schedules flattened into text. Built to be reused
+-- when joining other sources (adverse event reports, prescribing data) to the
+-- DPD: join on din where the other source has one, otherwise on the
+-- ingredient names or the ATC code. A DIN can appear on more than one record
+-- (246 extra records in the October 2026 release), so drug_code is the unique key.
+DROP VIEW IF EXISTS v_drug_lookup;
+CREATE VIEW v_drug_lookup AS
+WITH ingr AS (
+    SELECT drug_code,
+        GROUP_CONCAT(ingredient, '; ') AS active_ingredients,
+        GROUP_CONCAT(ingredient || ' ' || COALESCE(strength, '') || ' ' || COALESCE(strength_unit, ''), '; ') AS ingredient_strengths
+    FROM (SELECT * FROM ingredient ORDER BY drug_code, ingredient)
+    GROUP BY drug_code
+),
+forms AS (
+    SELECT drug_code, GROUP_CONCAT(pharmaceutical_form, '; ') AS dosage_forms
+    FROM dosage_form GROUP BY drug_code
+),
+routes AS (
+    SELECT drug_code, GROUP_CONCAT(route_of_administration, '; ') AS routes
+    FROM route GROUP BY drug_code
+),
+scheds AS (
+    SELECT drug_code, GROUP_CONCAT(schedule, '; ') AS schedules
+    FROM schedule GROUP BY drug_code
+)
+SELECT
+    p.din,
+    p.drug_code,
+    p.brand_name,
+    p.class,
+    i.active_ingredients,
+    i.ingredient_strengths,
+    p.number_of_ais,
+    p.atc_code,
+    p.atc_name,
+    f.dosage_forms,
+    r.routes,
+    s.schedules,
+    p.is_rx,
+    p.company_name,
+    p.company_group,
+    p.extract,
+    p.current_status,
+    p.first_date
+FROM v_product p
+LEFT JOIN ingr i ON i.drug_code = p.drug_code
+LEFT JOIN forms f ON f.drug_code = p.drug_code
+LEFT JOIN routes r ON r.drug_code = p.drug_code
+LEFT JOIN scheds s ON s.drug_code = p.drug_code;

@@ -41,6 +41,8 @@ The mix within psychiatric drug lines changed in four ways:
 
 New psychiatric substances have slowed. Canada saw 25 new psychiatric substances in the 1990s (including sertraline, risperidone, olanzapine and quetiapine), 18 in the 2000s, 8 in the 2010s and 9 so far in the 2020s. Recent ones include esketamine (2020), the orexin-blocking sleep drugs lemborexant (2020) and daridorexant (2023), zuranolone (2025), and the Alzheimer's antibodies lecanemab (2025) and donanemab (2026). The most copied psychiatric drugs are olanzapine (278 DINs from 33 companies), quetiapine (236 from 33) and risperidone (230 from 29).
 
+Ketamine and esketamine appear in 14 human products (`14_esketamine_ketamine.sql`). Spravato, Janssen's esketamine nasal spray, is the only esketamine product; its first DPD status date is May 2020, and it is marketed today. The other 13 are ketamine injections from 5 companies, starting with Ketalar in 1972: 7 are marketed, 3 approved but not yet sold and 3 cancelled. Ketamine's ATC code is N01AX03 (anaesthetics), so it is not counted among the psychiatric drugs above.
+
 ## Data
 
 Health Canada, Drug Product Database data extracts, downloaded 26 October 2026 from https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/what-data-extract-drug-product-database.html. Four zip files, one per product status: marketed (`allfiles.zip`), approved but not yet marketed (`allfiles_ap.zip`), cancelled or inactive (`allfiles_ia.zip`) and dormant (`allfiles_dr.zip`). Each zip holds the same set of related files linked by `drug_code`: products, companies, active ingredients, status history, therapeutic class (ATC), dosage form, route, schedule, packaging, veterinary species and biosimilar flags.
@@ -63,7 +65,7 @@ Company names are grouped by removing punctuation and legal-form words (Inc, ULC
 
 SQLite, built by `scripts/01_build_database.py` with the Python standard library. One table per DPD file type, with an `extract` column saying which zip each row came from. The main tables are `drug` (drug_code, din, brand_name, class), `company` (company_name, country), `ingredient` (ingredient, strength), `status` (status, history_date), `therapeutic_class` (tc_atc_number, tc_atc) and `schedule`. The build also loads `dosage_form`, `route`, `pharm_standard`, `package`, `vet_species`, `biosimilar` and `inactive_product`. Every table joins on `drug_code`.
 
-Lookup tables added by the build: `atc_level1` (WHO ATC main groups), `psych_class` (N05/N06 level 3 classes) and `company_clean` (grouped company names). `sql/00_views.sql` joins the tables into `v_product` (one row per product), `v_human` (human drugs), `v_analysis` (the analysis set) and `v_line` (one row per drug line).
+Lookup tables added by the build: `atc_level1` (WHO ATC main groups), `psych_class` (N05/N06 level 3 classes) and `company_clean` (grouped company names). `sql/00_views.sql` joins the tables into `v_product` (one row per product), `v_human` (human drugs), `v_analysis` (the analysis set), `v_line` (one row per drug line) and `v_drug_lookup` (one row per product with its DIN, ingredients, ATC code, form, route, schedule, company and status, for joining other sources such as adverse event reports to the DPD).
 
 ## How to run
 
@@ -72,7 +74,10 @@ Lookup tables added by the build: `atc_level1` (WHO ATC main groups), `psych_cla
 python scripts/01_build_database.py
 python scripts/02_run_queries.py      # writes results/*.csv
 python scripts/03_make_charts.py      # writes images/*.png (needs matplotlib)
+python scripts/04_export_powerbi.py   # writes powerbi/*.csv
 ```
+
+The Power BI report is built from the CSVs in `powerbi/`; `powerbi/POWERBI_STEPS.md` gives the model, DAX measures and pages.
 
 `tests/make_fake_extracts.py` writes small random zips in the DPD layout for testing the code without the real files.
 
@@ -94,6 +99,7 @@ python scripts/03_make_charts.py      # writes images/*.png (needs matplotlib)
 - `11_psych_top_companies_by_decade.sql`: Top psychiatric companies by decade.
 - `12_psych_status.sql`: Current status of psychiatric products by class.
 - `13_psych_new_substances_by_decade.sql`: New psychiatric substances per decade.
+- `14_esketamine_ketamine.sql`: Every human ketamine and esketamine product, from the drug lookup view.
 
 ## Key terms
 
@@ -124,5 +130,5 @@ python scripts/03_make_charts.py      # writes images/*.png (needs matplotlib)
 - Substance: An ATC level 5 code. Different salt forms of one drug (for example, two forms of paroxetine) count as one substance.
 - Survivorship bias: Distortion that comes from looking only at items that lasted. The DPD has almost no products cancelled before 1996, so earlier periods show only drugs still sold in 1996.
 - Therapeutic area: In this project, an ATC level 1 group, such as nervous system or cardiovascular system.
-- View: A saved SQL query that behaves like a table. `v_product`, `v_human`, `v_analysis` and `v_line` are views.
+- View: A saved SQL query that behaves like a table. `v_product`, `v_human`, `v_analysis`, `v_line` and `v_drug_lookup` are views.
 - Window function: A SQL function that calculates across a set of related rows without collapsing them, such as ROW_NUMBER() for ranking or SUM() OVER (PARTITION BY ...) for shares within a group.
