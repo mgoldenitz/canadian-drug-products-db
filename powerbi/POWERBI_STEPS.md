@@ -43,7 +43,7 @@ In Model view, drag these columns together. All are many-to-one, single directio
 
 ## 4. Measures
 
-Create a blank table called `_Measures` (Enter data, then load an empty table), then select `_Measures` in the Data pane and add each measure with Table tools, then New measure. Paste one measure at a time. A measure can't share a name with a table, so the row count is called `Product Count`, not `Products`. Once the measures exist, right-click the placeholder `Column` in `_Measures` and choose Hide in report view (it can't be deleted if `_Measures` was made as a calculated table):
+Create a blank table called `Measures` (Enter data, then load an empty table), then select `Measures` in the Data pane and add each measure with Table tools, then New measure. Paste one measure at a time. A measure can't share a name with a table, so the row count is called `Product Count`, not `Products`. Once the measures exist, right-click the placeholder `Column` in `Measures` and choose Hide in report view (it can't be deleted if `Measures` was made as a calculated table):
 
 ```
 Product Count = COUNTROWS ( products )
