@@ -79,19 +79,19 @@ Format `Psych Share of Rx Lines` and `Class Share of Psych Lines` as percentages
 
 Companies:
 
-- Clustered bar chart: `drug_lines[company_group]` on the axis, `Rx Drug Lines` as the value. In the Filters pane, set a Top N filter on `company_group`: top 10 by `Rx Drug Lines`.
+- Clustered bar chart: `drug_lines[company_group]` on the Y-axis, `Rx Drug Lines` on the X-axis. In the Filters pane, set a Top N filter on `company_group`: top 10 by `Rx Drug Lines`.
 - Add `Rx Products` and `DINs per Line` to the tooltip.
 - Slicer: `Date[Period]`.
 
 Therapeutic areas:
 
-- Clustered bar chart: `atc_level1[therapeutic_area]` on the axis, `Rx Products` as the value.
-- Stacked column chart: `Date[Period]` on the axis, `Rx Drug Lines` as the value, `atc_level1[therapeutic_area]` as the legend.
+- Clustered bar chart: `atc_level1[therapeutic_area]` on the Y-axis, `Rx Products` on the X-axis.
+- Stacked column chart: `Date[Period]` on the X-axis, `Rx Drug Lines` on the Y-axis, `atc_level1[therapeutic_area]` as the legend.
 
 Psychiatric drugs:
 
-- Line chart: `Date[Period]` on the axis, `Psych Share of Rx Lines` as the value.
-- 100% stacked column chart: `Date[Period]` on the axis, `Class Share of Psych Lines` as the value, `psych_class[psych_class]` as the legend. Filter the visual to periods from 1970-74.
+- Line chart: `Date[Period]` on the X-axis, `Psych Share of Rx Lines` on the Y-axis.
+- 100% stacked column chart: `Date[Period]` on the X-axis, `Class Share of Psych Lines` on the Y-axis, `psych_class[psych_class]` as the legend. Filter the visual to periods from 1970-74.
 - Table: `ketamine_products` with `brand_name`, `din`, `atc_name`, `company_group`, `current_status` and `first_date`.
 - Text box: "Before 1996, the DPD holds only products still sold in 1996."
 
