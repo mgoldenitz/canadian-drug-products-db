@@ -43,12 +43,12 @@ In Model view, drag these columns together. All are many-to-one, single directio
 
 ## 4. Measures
 
-Create a blank table called `_Measures` (Enter data, then load an empty table), then add each measure with New measure:
+Create a blank table called `_Measures` (Enter data, then load an empty table), then select `_Measures` in the Data pane and add each measure with Table tools, then New measure. Paste one measure at a time. A measure can't share a name with a table, so the row count is called `Product Count`, not `Products`. Once the measures exist, delete the placeholder `Column` in `_Measures`:
 
 ```
-Products = COUNTROWS ( products )
+Product Count = COUNTROWS ( products )
 
-Rx Products = CALCULATE ( [Products], products[is_rx] = 1 )
+Rx Products = CALCULATE ( [Product Count], products[is_rx] = 1 )
 
 Drug Lines = COUNTROWS ( drug_lines )
 
