@@ -12,6 +12,8 @@ In Power Query, set these types before you click Close & Apply:
 - `first_date`: Date.
 - `first_year`, `is_psych`, `is_rx`, `dins` and `marketed_now`: Whole number.
 
+Power BI guesses each column's type on load and records it as a Changed Type step. When it asks whether to replace that conversion, choose Replace current; Add new step converts the guessed number back to text and leaves DINs without their leading zeros. You can also delete the Changed Type step under Applied Steps and set every type yourself.
+
 ## 2. Add a date table
 
 Choose Modeling, then New table, and paste:
