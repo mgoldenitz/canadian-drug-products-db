@@ -121,6 +121,20 @@ The Power BI report is built from the CSVs in `powerbi/`; `powerbi/POWERBI_STEPS
 - `13_psych_new_substances_by_decade.sql`: New psychiatric substances per decade.
 - `14_esketamine_ketamine.sql`: Every human ketamine and esketamine product, from the drug lookup view.
 
+## Diagrams
+
+![Database schema](images/diagram-erd.svg)
+
+The tables in dpd.db and their keys.
+
+![Data flow](images/diagram-dataflow.svg)
+
+Health Canada DPD extracts to SQLite, SQL results and Power BI.
+
+![SQL files](images/diagram-sql-tree.svg)
+
+The files in sql/. The groups come from the file names.
+
 ## Key terms
 
 - Analysis set: The products this project analyses: human drugs with an ATC code, excluding homeopathic products (44,177 products).
